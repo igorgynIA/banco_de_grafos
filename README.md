@@ -11,6 +11,6 @@ Banco de grafos construido utilizando o Neo4j. Contem os scripts .cypher e image
 Veja a pasta `imagens_grafo/` para exemplos visuais gerados a partir de consultas.
 
 ## Trabalho feito por:
-– Alunos: Igor Dias Aguiar (igorgynIA) e Lucas Fabricio Ozorio ()
-– Faculdade: Universidade Federal de Goiás 
+– Alunos: Igor Dias Aguiar (igorgynIA) e Lucas Fabricio Ozorio (lucas-ozorio)
+– Faculdade: Universidade Federal de Goiás (UFG)
 – Disciplina: Banco de Dados
