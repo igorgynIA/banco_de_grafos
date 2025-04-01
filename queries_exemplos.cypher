@@ -1,5 +1,10 @@
 //Colocamos aqui as consultas que devem ser feitas para manipular o banco previamente criado, tirando visualizações interessantes para o projeto
 
+
+//Apaga todos os grafos:
+MATCH (n)
+DETACH DELETE n;
+
 //Visualizar os treinadores
 MATCH (n:COACH) RETURN n;
 
@@ -37,6 +42,10 @@ RETURN player, team;
 
 ////// SIMULAÇÃO DA TROCA ENTRE ANTHONY EDWARDS E LUKA DONCIC //////////Q
 // Trocar relações SAINDO de doncic para anthony
+//Buscar jogadores com nome Luka Doncic ou Anthony Davis
+MATCH (player:PLAYER)
+WHERE player.name = "Luka Doncic" OR player.name = "Anthony Davis"
+RETURN player;
 //Alternativa "Esperta" para não ter que reconstruir relações de fato, apenas alteramos os dados
 
 // Passo 1: pegar os dados de cada jogador

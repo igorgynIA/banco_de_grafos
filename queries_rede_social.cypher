@@ -1,11 +1,8 @@
 //Colocamos aqui as consultas que devem ser feitas para criar o banco de grafos do nosso projeto no Neo4j
 
-//Apaga todos os grafos:
-
-MATCH (n)
-DETACH DELETE n
-
 //Criar mini-universo da NBA com alguns times, treinadores e jogadores
+
+//Passo 1: Cria os nós dos jogadores
 CREATE 
   (russell:PLAYER {name: "Russell Westbrook", age: 35, number: 0, height: 1.91, weight: 91}),
   (lebron:PLAYER {name: "LeBron James", age: 40, number: 6, height: 2.06, weight: 113}),
@@ -27,10 +24,10 @@ CREATE
   (jokic:PLAYER {name: "Nikola Jokic", age: 29, number: 15, height: 2.11, weight: 129}),
   (murray:PLAYER {name: "Jamal Murray", age: 27, number: 27, height: 1.93, weight: 94}),
   (edwards:PLAYER {name: "Anthony Edwards", age: 23, number: 5, height: 1.93, weight: 102}),
-(gobert:PLAYER {name: "Rudy Gobert", age: 32, number: 27, height: 2.16, weight: 117}),
+  (gobert:PLAYER {name: "Rudy Gobert", age: 32, number: 27, height: 2.16, weight: 117}),
   (tobias:PLAYER {name: "Tobias Harris", age: 29, number: 22, height: 2.03, weight: 100}),
 
-
+//Nós dos treinadores
 (jj:COACH{name: "JJ Redick"}),
 (finch:COACH{name: "Crhis Finch"}),
 (jason:COACH{name: "Jason Kidd"}),
@@ -41,6 +38,7 @@ CREATE
 (malone:COACH{name: "Mike Malone"}),
 (stan:COACH{name: "Stan Van Gundy"}),
 
+//Nó dos times
 (lakers:TEAM{name:"LA Lakers"}),
 (celtics:TEAM{name:"Boston Celtics"}),
 (timberwolves:TEAM{name:"Minessota Timberwolves"}),
@@ -50,6 +48,7 @@ CREATE
 (bucks:TEAM{name:"Milwaukee Bucks"}),
 (sixers:TEAM{name:"Philadelphia 76ers"}),
 
+//Passo 2: Relações dos jogadores
 (lebron)-[:TEAMMATES]-> (reaves),
 (lebron)<-[:TEAMMATES]- (reaves),
 (gobert)-[:TEAMMATES]-> (edwards),
@@ -103,6 +102,7 @@ CREATE
 (prit)-[:TEAMMATES]-> (jrue),
 (prit)<-[:TEAMMATES]- (jrue),
 
+//Relação de treinador treina jogador
 (jj)-[:COACHES]->(lebron),
 (jj)-[:COACHES]->(anthony),
 (jj)-[:COACHES]->(reaves),
@@ -126,6 +126,7 @@ CREATE
 (malone)-[:COACHES]->(murray),
 (malone)-[:COACHES]->(jokic),
 
+//Relação treinador treina time
 (jj)-[:COACHES_FOR]->(lakers),
 (finch)-[:COACHES_FOR]->(timberwolves),
 (jason)-[:COACHES_FOR]->(mavericks),
@@ -135,6 +136,7 @@ CREATE
 (joe)-[:COACHES_FOR]->(celtics),
 (malone)-[:COACHES_FOR]->(nuggets),
 
+//Relação jogador jogou contra time (com algumas estatísticas)
 (lebron)-[:PLAYED_AGAINST {minutes: 38, points: 32, assists: 6, rebounds: 6, turnovers: 2}]-> (timberwolves),
 (russell)-[:PLAYED_AGAINST {minutes: 29, points: 16, assists: 12, rebounds: 11, turnovers: 16}]-> (timberwolves),
 (anthony)-[:PLAYED_AGAINST {minutes: 36, points: 27, assists: 2, rebounds: 8, turnovers: 1}]-> (timberwolves),
