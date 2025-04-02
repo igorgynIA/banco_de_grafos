@@ -2,7 +2,7 @@
 Banco de grafos construido utilizando o Neo4j. Contem os scripts .cypher e imagens dos grafos.
 
 ## Como usar
-1. Acesse [https://console.neo4j.io](https://console.neo4j.io);
+1. Acesse o link da plataforma [Neo4j](https://console.neo4j.io)
 2. Crie uma instância gratuita;
 3. Copie o conteúdo de `create_graph.cypher` e cole no editor para criar os grafos;
 4. Use `queries_exemplos.cypher` para explorar e testar consultas.
