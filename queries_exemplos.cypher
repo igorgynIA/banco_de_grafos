@@ -40,7 +40,7 @@ WHERE player.height > 2.00
 RETURN player, team;
 
 
-////// SIMULAÇÃO DA TROCA ENTRE ANTHONY EDWARDS E LUKA DONCIC //////////Q
+////// SIMULAÇÃO DA TROCA ENTRE ANTHONY EDWARDS E LUKA DONCIC //////////
 // Trocar relações SAINDO de doncic para anthony
 //Buscar jogadores com nome Luka Doncic ou Anthony Davis
 MATCH (player:PLAYER)
